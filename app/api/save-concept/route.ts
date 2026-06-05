@@ -15,7 +15,6 @@ type RequestBody = {
 
 async function upsertConcept(payload: Record<string, any>): Promise<{ error: any }> {
   const supabase = createClient();
-  // @ts-expect-error - Supabase client types vary
   return supabase
     .from('concepts')
     .upsert(payload, { onConflict: 'subject,concept' });

@@ -24,7 +24,6 @@ async function queryConceptRow(
   concept: string,
 ): Promise<{ data: ConceptRow | null; error: any }> {
   const supabase = createClient();
-  // @ts-expect-error - Supabase client types vary
   return supabase
     .from('concepts')
     .select('mastery_level, weak_areas, strong_areas')
